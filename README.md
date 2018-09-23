@@ -5,17 +5,29 @@
 
 A partir de várias transações financeiras entre diversos correntistas, o objetivo é minimizar o fluxo monetário envolvido, a fim de minimizar o imposto total cobrado sobre as movimentações financeiras envolvidas no processo.
 
-## O Problema
+## Problema
 
-O problema consiste em eliminar o "repasse" do mesmo dinheiro. Por exemplo, se o correntista *a* transfere 500 reais para o *b*, que passa 250 para o *c*, então é obtido um fluxo total de 750 reais movimentados. Porém, como pode-se notar, como o *b* recebeu 500 e transferiu 250, ele obteve um lucro de 250 reais, o mesmo lucro de *c*, o qual apenas recebeu 250. Sendo assim, é evidente que *b* e *c* receberam 250 reais cada. Logo, a fim de minimizar a quantia em fluxo, é possível reformular a relação de movimentações financeiras entre correntistas, contanto que *a* transfira o lucro de 250 reais para *b*, e transfira o lucro de 250 reais para *c*. O resultado disso é que, ao invés de movimentar um quantia total de 750 reais, apenas 500 reais são movimentado com o modelo simplificado, mantendo o efeito desejado.
+  O problema consiste em eliminar o "repasse" do mesmo dinheiro. Por exemplo, se o correntista *a* transfere 500 reais para o *b*, que passa 250 para o *c*, então é obtido um fluxo total de 750 reais movimentados. Porém, como pode-se notar, como o *b* recebeu 500 e transferiu 250, ele obteve um lucro de 250 reais, o mesmo lucro de *c*, o qual apenas recebeu 250. Sendo assim, é evidente que *b* e *c* receberam 250 reais cada.
+
+Logo, a fim de minimizar a quantia em fluxo, é possível reformular a relação de movimentações financeiras entre correntistas, contanto que *a* transfira o lucro de 250 reais para *b*, e transfira o lucro de 250 reais para *c*. O resultado disso é que, ao invés de movimentar um quantia total de 750 reais, apenas 500 reais são movimentados com o modelo simplificado, mantendo o efeito desejado. Um exemplo de um cenário relativamente mais complexo pode ser visualizado abaixo:
+
+<p align="center">
+    <img src="https://i.imgur.com/uSB8KiW.png" alt="Original e minimizado" />
+</p>
 
 ## Estrutura de Dados
 
-Para a resolução deste problema, foi utilizada uma represenação de grafos. Um grafo é um conjunto de vértices e arestas que conectam vértices. Será utilizado um vértice para representar cada correntista e uma aresta entre dois vértices para representar cada movimentação financeira. O peso de uma aresta inidica o valor transferido e a direção da aresta indica de qual correntista partiu o dinheiro e para qual correntista o dinheiro partiu.
+  Para a resolução deste problema, foi utilizada uma represenação de grafos. Um grafo é um conjunto de vértices e arestas que conectam vértices. Será utilizado um vértice para representar cada correntista e uma aresta entre dois vértices para representar cada movimentação financeira. O peso de uma aresta inidica o valor transferido e a direção da aresta indica de qual correntista partiu o dinheiro e para qual correntista o dinheiro partiu.
+
+Quando partimos de um vértice *a* e, através de pelo menos um caminho, conseguimos voltar a esse vértice, dizemos que temos um ciclo. No algoritmo implementado é utilizada a estrutura de grafos por matriz de adjacencias. Uma matriz de adjacencias é basicamente uma matriz *n* x *n* (onde *n* é o número total de vértices do grafo) com o valor das transações de um vértice à outro vértice, e com um zero onde elas não existem.
+
+<p align="center">
+    <img src="https://i.imgur.com/LWXLmrX.png" alt="Grafo representado por uma matriz" />
+</p>
 
 ## Casos de Teste
 
-Abaixo são apresentados os resultados dos casos de teste, detalhando a quantidade total de dinheiro antes e depois da minimização. Além da quantidade economizada pela redução de impostos adquirida através da realização do processo.
+Abaixo são apresentados os resultados dos casos de teste, detalhando a quantidade total de dinheiro antes e depois da minimização. Além da quantidade economizada pela redução de impostos (1% sobre cada movimentação) adquirida através da realização do processo.
 
 |  #  | Inicial | Final  | Economia |
 | --: | ------: | -----: | -------: |
