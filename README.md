@@ -17,9 +17,9 @@ Logo, a fim de minimizar a quantia em fluxo, é possível reformular a relaç
 
 ## Estrutura de Dados
 
-  Para a resolução deste problema, foi utilizada uma representação de grafos. Um grafo é um conjunto de vértices e arestas que conectam vértices. Será utilizado um vértice para representar cada correntista e uma aresta entre dois vértices para representar cada movimentação financeira. O peso de uma aresta inidica o valor transferido e a direção da aresta indica de qual correntista partiu o dinheiro e para qual correntista o dinheiro partiu.
+  Para a resolução deste problema, foi utilizada uma representação de grafos. Um grafo é um conjunto de vértices e arestas que conectam vértices. Foi utilizado um vértice para representar cada correntista e uma aresta entre dois vértices para representar cada movimentação financeira. O peso de uma aresta inidica o valor transferido e a direção da aresta indica de qual correntista partiu o dinheiro e para qual correntista o dinheiro partiu.
 
-Quando partimos de um vértice *a* e, através de pelo menos um caminho, conseguimos voltar a esse vértice, dizemos que temos um ciclo. No algoritmo implementado é utilizada a estrutura de grafos por matriz de adjacencias. Uma matriz de adjacencias é basicamente uma matriz *n* x *n* (onde *n* é o número total de vértices do grafo) com o valor das transações de um vértice a outro vértice, e com um zero onde elas não existem.
+Quando partimos de um vértice *a* e, através de pelo menos um caminho, conseguimos voltar a esse vértice, dizemos que temos um ciclo. No algoritmo implementado, é utilizada a estrutura de grafos por matriz de adjacências. Uma matriz de adjacências é basicamente uma matriz *n* x *n* (onde *n* é o número total de vértices do grafo) com o valor das transações de um vértice a outro vértice, e com um zero onde elas não existem.
 
 <p align="center">
     <img src="https://i.imgur.com/LWXLmrX.png" alt="Grafo representado por uma matriz" />
